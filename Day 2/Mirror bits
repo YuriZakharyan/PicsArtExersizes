@@ -1,0 +1,11 @@
+int solution(int a)
+{
+    string binaryRep = Convert.ToString(a, 2);
+    char[] chars = binaryRep.ToCharArray();
+    string revString = String.Empty;
+    for(int i = chars.Length -1; i>=0; i--)
+    {
+        revString += chars[i];
+    }                       
+    return Convert.ToInt32(revString, 2);
+}
