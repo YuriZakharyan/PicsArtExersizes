@@ -1,0 +1,61 @@
+public class Solution {
+    public bool IsPalindrome(string s) {
+        int i = 0;
+        int j = s.Length-1;
+        s = s.ToLower();
+        while (i < j){
+            if (!char.IsLetterOrDigit(s[i]))
+                i++;
+            else if (!char.IsLetterOrDigit(s[j]))
+                j--;
+            else if (s[i++] != s[j--])
+                return false;
+        }
+        return true;
+    }
+}
+
+//class Solution {                                  //without methods
+// public bool IsPalindrome(string s) {
+//            int index = -1;
+//            s = s.Trim().Replace(" ", "").ToLower();
+//            for(int i = 0; i<s.Length; i++)
+//            {
+//                if (index == 0 && i != 0){
+//                    i = i - 1;
+//                }
+//                if ((int)s[i] >= 65 && (int)s[i] <= 90)
+//                {
+//                    index = -1;
+//                    continue;
+//                    
+//                }
+//                else if ((int)s[i] >= 97 && (int)s[i] <= 122)
+//                {
+//                    index = -1;
+//                    continue;
+//                }
+//                else if((int)s[i] >= 48 && (int)s[i] <= 57)
+//                {
+//                        index = -1;
+//                    continue;
+//                }
+//                else
+//                {
+//                    s = s.Replace(s[i], ' ').Replace(" ", "");
+//                    index = 0;
+//
+//                }
+//            }
+//            string s1 = String.Empty;
+//            for(int i = s.Length-1; i>=0; i--)
+//            {
+//                s1 += s[i];
+//            }
+//            Console.WriteLine(s1);
+//            Console.WriteLine(s);
+//            if (s1 == s) return true;
+//            else return false;
+//
+//        }
+//};
