@@ -1,0 +1,10 @@
+string solution(string inputString)
+{
+    int left = inputString.LastIndexOf('(');
+    if (left == -1) return inputString;
+    else
+    {
+        int right = inputString.IndexOf(')', left);
+        return solution(inputString.Substring(0, left) + new string(inputString.Substring(left + 1, right - left - 1).Reverse().ToArray()) + inputString.Substring(right + 1));
+    }
+}
