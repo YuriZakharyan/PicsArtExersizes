@@ -1,0 +1,15 @@
+public class Solution {
+    public IList<int> FindDuplicates(int[] nums) {
+        Array.Sort(nums);
+        List<int> numList = new List<int>();
+        int value = nums[0];
+        for(int i = 1; i<nums.Length; i++){
+            if(value == nums[i]){
+                numList.Add(nums[i]);
+            }
+            value = nums[i];
+        }
+        return numList;
+        
+    }
+}
