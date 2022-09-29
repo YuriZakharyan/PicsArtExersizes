@@ -1,0 +1,19 @@
+int solution(int n, int k)
+{
+    return n & ~(1 << (k - 1));
+/*
+    string binaryRep = Convert.ToString(n, 2);
+    char[] chars = binaryRep.ToCharArray();
+    if (k <= chars.Length-1)
+    {
+        chars[k] = '0';
+    }
+        
+    string revString = String.Empty;
+    for (int i = 0; i<chars.Length; i++)
+    {
+    revString += chars[i];
+    }
+    return Convert.ToInt32(revString,2);
+*/
+}
