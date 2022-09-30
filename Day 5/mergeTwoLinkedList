@@ -1,0 +1,21 @@
+// Singly-linked lists are already defined with this interface:
+// class ListNode<T> {
+//   public T value { get; set; }
+//   public ListNode<T> next { get; set; }
+// }
+//
+ListNode<int> solution(ListNode<int> l1, ListNode<int> l2) {
+    if(l1 == null) return l2;
+    if(l2 == null) return l1;
+    
+    if(l1.value < l2.value)
+    {
+        l1.next = solution(l1.next, l2);
+        return l1;
+    }
+    else
+    {
+        l2.next = solution(l2.next, l1);
+        return l2;
+    }   
+}
