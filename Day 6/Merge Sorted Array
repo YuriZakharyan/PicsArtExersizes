@@ -1,0 +1,20 @@
+public class Solution {
+    public void Merge(int[] nums1, int m, int[] nums2, int n) {
+        int t = m + n - 1;  //t == 5
+        int t1 = m - 1;     //t1== 2 
+        int t2 = n - 1;     //t2== 2
+        
+        while(t2 >= 0){
+            if(t1 >= 0 && nums1[t1] > nums2[t2]){
+                nums1[t] = nums1[t1];
+                t--;
+                t1--;
+            }
+            else{
+                nums1[t] = nums2[t2];
+                t--;
+                t2--;
+            }
+         }
+    }
+}
