@@ -1,0 +1,21 @@
+public class Solution {
+    public int[] Intersection(int[] nums1, int[] nums2) {
+        HashSet<int> numsSet = new HashSet<int>();
+        HashSet<int> intersect = new HashSet<int>();
+        
+        foreach(int item in nums1){
+            numsSet.Add(item);
+        }
+        foreach(int item in nums2){
+            if(numsSet.Contains(item)){
+                intersect.Add(item);
+            }
+        }
+        int[] arr = new int[intersect.Count()];
+        int index = 0;
+        foreach(int item in intersect){
+            arr[index++] = item;
+        }
+        return arr;
+    }
+}
