@@ -1,0 +1,66 @@
+public class Solution {
+
+    public int[] SortByBits(int[] arr) {
+        for(int i=0;i<arr.Length;i++) { 
+            for(int j=1;j<arr.Length-i;j++) {
+                if(CountOfOneBits(arr[j])<CountOfOneBits(arr[j-1]) || (CountOfOneBits(arr[j])==CountOfOneBits(arr[j-1]) &&arr[j]<arr[j-1])) {
+                    Swap(ref arr[j], ref arr[j-1]);
+                }
+            }
+        }
+        return arr;
+    }
+    public void Swap(ref int a, ref int b){
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+    public int CountOfOneBits(int n) {
+        int count = 0;
+        for(int i=0;i<32;i++) 
+            if((n&1<<i)!=0)
+                count++;
+        return count;
+    }
+}
+
+
+///public class Solution {                             
+///            public int[] SortByBits(int[] arr)
+///        {
+///            int temp;
+///            Dictionary<int, int> result = new Dictionary<int, int>();
+///
+///            int[]nums = new int[arr.Length];    //nums->tveri mej 1-eri qanaknery
+///            for(int i = 0; i<nums.Length; i++)
+///            {
+///                temp = arr[i];
+///                int count = 0;
+///                while (temp != 0)
+///                {
+///                    temp = temp & (temp - 1);
+///                    count++;
+///                }
+///                nums[i] = count;
+///            }                                   //arr->mer tverna
+///            for(int i = 0; i<nums.Length; i++)
+///            {
+///                result.Add(arr[i], nums[i]);
+///            }
+///            //foreach(var item in result)
+///            //{
+///            //    Console.WriteLine(item.Key + "->" + item.Value);
+///            //}
+///            var myArr = result.ToList();
+///            myArr.Sort((x1,x2) => x1.Value.CompareTo(x2.Value));
+///            int k = 0;
+///            foreach(var item in myArr) 
+///            {
+///                arr[k++] = item.Key;
+///            }
+///            
+///            return arr;
+///
+///        }
+///
+///}
